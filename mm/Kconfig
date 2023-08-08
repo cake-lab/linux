@@ -1206,6 +1206,18 @@ config PER_VMA_LOCK
 	  This feature allows locking each virtual memory area separately when
 	  handling page faults instead of taking mmap_lock.
 
+config BOUNCE_ALLOC
+	tristate "Bounce allocator"
+	help
+	  A special purpose allocator that protects against temporal memory
+	  errors.
+
+config BOUNCE_ALLOC_STAT
+	bool "Bounce allocator statistics"
+	depends on BOUNCE_ALLOC
+	help
+	  Statistics for the bounce allocator.
+
 source "mm/damon/Kconfig"
 
 endmenu
